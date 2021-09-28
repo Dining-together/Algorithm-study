@@ -5,18 +5,14 @@ input = sys.stdin.readline
 n, nums = int(input()), list(map(int, input().split()))
 nums.sort()
 
-idx = 0
+result = 0
 count = 0
 
-while nums:
-    length = len(nums)
-    if idx+1 > length:
-        break
-    if nums[idx] == idx+1:
-        nums = nums[idx+1:]
-        idx = 0
-        count += 1
-    else:
-        idx += 1
+# 같은 로직인데 더 간단한 방법
+for i in nums:
+    count += 1
+    if count >= i:
+        result += 1
+        count = 0
 
-print(count)
+print(result)
