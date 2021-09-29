@@ -4,16 +4,14 @@ input = sys.stdin.readline
 
 n = int(input())
 nums = list(map(int, input().split()))
+nums.sort()
 
-cases = []
-for i in range(1, n+1):
-    a = list(combinations(nums, i))
-    for aa in a:
-        cases.append(sum(aa))
-
-cases = list(set(cases))
-
-for i in range(1, sum(nums)+1):
-    if i in cases:
-        print(i)
+target = 1
+for i in nums:
+    if target < i:
         break
+    target += i
+
+print(target)
+
+# 5원 이상의 동전들만 있다면 4를 만들 수 없다 << 여기서 4가 target
