@@ -4,10 +4,13 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 balls = list(map(int, input().split()))
 
-count = 0
-for i in range(N):
-    for j in range(i+1, N):
-        if balls[i] != balls[j]:
-            count += 1
+array = [0] * 11
+for b in balls:
+    array[b] += 1
 
-print(count)
+result = 0
+for i in range(1, M+1):
+    N -= array[i]
+    result += array[i] * N
+
+print(result)
