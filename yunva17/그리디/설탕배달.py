@@ -2,12 +2,17 @@
 
 n = int(input())
 
-result = -1
+result = 0
 
-for i in range((n // 5) + 1):
-    for j in range((n // 3) + 1):
-        if (5 * i + 3 * j) == n :
-            result = i+j
+while (n >=0):
+    if(n % 5 == 0):
+        result += n // 5
+        break
+    n -= 3
+    result += 1
+
+else:
+    result = -1
         
 
 print(result)
