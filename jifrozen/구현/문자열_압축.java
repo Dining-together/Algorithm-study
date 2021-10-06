@@ -5,7 +5,6 @@ public class 문자열_압축 {
         String answer = "";
         for (int i = 1; i < s.length() / 2 + 1; i++) {
             compression = s.substring(0, i);
-            int n = i;
             int cnt = 1;
             for (int j = i; j < s.length(); j = j + i) {
                 String sub = "";
