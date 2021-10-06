@@ -10,4 +10,11 @@ for i in inputs:
         alpha.append(i)
 
 alpha.sort()
-print("".join(alpha)+str(sum(digit)))
+value = sum(digit)
+
+# 0일 경우는 생략 << 놓친 포인트
+
+if value != 0:
+    print("".join(alpha)+str(value))
+else:
+    print("".join(alpha))
