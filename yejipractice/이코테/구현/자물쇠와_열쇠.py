@@ -11,52 +11,55 @@ lock = []
 for _ in range(m):
     lock.append(list(map(int, input().split())))
 
-board = [[-2 for i in range(m+(n-1)*2)] for j in range(m+(n-1)*2)]
 
-for i in range(m):
-    for j in range(m):
-        board[n-1+i][n-1+j] = lock[i][j]
+def solution(key, lock):
+    m = len(lock)
+    n = len(key)
 
+    def make_board(lock):
+        board = [[-2 for i in range(m+(n-1)*2)] for j in range(m+(n-1)*2)]
+        for i in range(m):
+            for j in range(m):
+                board[n-1+i][n-1+j] = lock[i][j]
+        return board
 
-def check_key(x, y):
-    b = copy.deepcopy(board)
-    for i in range(n):
-        for j in range(n):
-            b[x+i][y+j] += key[i][j]
-    for i in range(m):
-        if 0 in b[n-1+i][n-1:n-1+m] or 2 in b[n-1+i][n-1:n-1+m]:
-            return False
-    return True
+    def check_key(board):
+        for i in range(n-1, n+m-1):
+            for j in range(n-1, n+m-1):
+                if board[i][j] != 1:
+                    return False
+        return True
 
+    def translate(board, key, start_x, start_y):
+        for i in range(n):
+            for j in range(n):
+                board[start_x+i][start_y+j] += key[i][j]
+        return board
 
-def sim():
-    for i in range(len(board)-(n-1)):
-        for j in range(len(board)-(n-1)):
-            start_x, start_y = i, j
-            if check_key(start_x, start_y) == True:
-                return True
+    def turn_key(key):
+        temp = [[0 for i in range(n)]for j in range(n)]
+        for i in range(n):
+            for j in range(n):
+                temp[j][n-i-1] = key[i][j]
+        return temp
+
+    board = make_board(lock)
+    key1 = turn_key(key)
+    key2 = turn_key(key1)
+    key3 = turn_key(key2)
+
+    for k in [key, key1, key2, key3]:
+        for start_x in range(n+m-1):
+            for start_y in range(n+m-1):
+                b = translate(copy.deepcopy(board), k, start_x, start_y)
+                if check_key(b):
+                    return True
     return False
 
 
-def turn_key():
-    temp = [[0 for i in range(n)]for j in range(n)]
-    for i in range(n):
-        for j in range(n):
-            temp[j][n-i-1] = key[i][j]
-    return temp
+print(solution(key, lock))
 
-
-turn_time = 1
-while 1:
-    if turn_time == 4:
-        print("false")
-        break
-    if sim() == True:
-        print("true")
-        break
-    else:
-        key = turn_key()
-        turn_time += 1
-
-# 처음에 푼 코드
-# 솔루션과 로직은 같은데 테스트 케이스에서 걸림
+# 솔루션 참고하고 수정한 코드
+# 이전 코드 실패 원인: 인덱스 실수 추측
+# 파이썬 이중 배열의 깊은 복사: copy 모듈의 deepcopy()
+# copy(), [:] << 이중 배열에서는 얕은 복사가 된다. 그냥 배열에는 깊은 복사로 적용
