@@ -51,6 +51,6 @@
 | 문지언 | 9월 27일~10월 1일   | [그리디](계획/그리디.md) |
 | 신태범 | 10월 4일~10월 8일   | [구현](계획/구현.md)     |
 | 이예지 | 10월 11일~10월 15일 | [정렬](계획/정렬.md)     |
-| 김지윤 |                     |                          |
+| 김지윤 | 10월 18일~10월 22일 | [DFS&BFS](계획/DFS&BFS.md) |
 
 참고 [https://github.com/ssafy-algoga/algorithm-study](https://github.com/ssafy-algoga/algorithm-study)
