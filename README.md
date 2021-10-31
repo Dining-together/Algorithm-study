@@ -53,6 +53,6 @@
 | 이예지 | 10월 11일~10월 15일 | [정렬](계획/정렬.md)     |
 | 김지윤 | 10월 18일~10월 22일 | [DFS&BFS](계획/DFS&BFS.md) |
 | 문지언 | 10월 25일~10월 29일 | [이진탐색](계획/이진탐색.md) |
-| 문지언 | 11월 1일~11월 5일 | [다이나믹_프로그래밍](계획/다이나믹_프로그래밍.md) |
+| 신태범 | 11월 1일~11월 5일 | [다이나믹_프로그래밍](계획/다이나믹_프로그래밍.md) |
 
 참고 [https://github.com/ssafy-algoga/algorithm-study](https://github.com/ssafy-algoga/algorithm-study)
