@@ -55,5 +55,6 @@
 | 문지언 | 10월 25일~10월 29일 | [이진탐색](계획/이진탐색.md)                        |
 | 신태범 | 11월 1일~11월 5일   | [다이나믹\_프로그래밍](계획/다이나믹_프로그래밍.md) |
 | 이예지 | 11월 8일~11월 12일  | [최단\_경로](계획/최단_경로.md)                     |
+| 김지윤 | 11월 15일~11월 21일  | [그래프\_이론](계획/그래프_이론.md)                     |
 
 참고 [https://github.com/ssafy-algoga/algorithm-study](https://github.com/ssafy-algoga/algorithm-study)
